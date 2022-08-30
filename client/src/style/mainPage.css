@@ -1,12 +1,47 @@
+/* open-sans */
+@font-face {
+    font-family: open-sans;
+    src: url(../assets/fonts/OpenSans-Regular.ttf);
+}
+
+/* codecPro */
+@font-face {
+    font-family: codecPro;
+    src: url(../assets/fonts/CodecPro-Regular.ttf);
+}
+
 html {
     background-color: #1d2549;
 }
 
 header {
     display: flex;
-
+    justify-content: right;
 }
 
-.buttonCadastroLogin {
+.cadastroLogin {
+    font-family: open-sans;
+    color: #e9e3e8;
+    text-decoration: none;
+    font-size: 3vw;
+    justify-self: right;
+    margin-top:1%;
+    padding-right: 4%;
+}
 
+main {
+    display: flex;
+    margin: 11% 4% 0% 4%;
+    justify-content: space-between;
+}
+
+.imgCoracao {
+    width: 50%;
+}
+
+h1 {
+    color: #bdf347;
+    font-family: codecPro;
+    font-size: 9vw;
+    flex-basis: 40%;
 }
