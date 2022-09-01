@@ -12,6 +12,8 @@
 
 html {
     background-color: #1d2549;
+    font-family: codecPro;
+    color: #e9e3e8;
 }
 
 header {
@@ -20,13 +22,19 @@ header {
 }
 
 .cadastroLogin {
-    font-family: open-sans;
-    color: #e9e3e8;
     text-decoration: none;
     font-size: 3vw;
     justify-self: right;
     margin-top:1%;
     padding-right: 4%;
+}
+
+.cadastroLogin:visited {
+    color: #e9e3e8;
+}
+
+.cadastroLogin:hover {
+    color: red;
 }
 
 main {
@@ -44,4 +52,60 @@ h1 {
     font-family: codecPro;
     font-size: 9vw;
     flex-basis: 40%;
+    height: 45%;
 }
+
+.subTitulo {
+    font-size: 2vw;
+}
+
+.apresentacao {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 13vw;
+    justify-content: center;
+}
+
+.tituloApresentacao {
+    text-align: center;
+    font-size: 5vw;
+    flex-basis: 58%;
+}
+
+.container {
+    flex-basis: 58%;
+    height: 1vw;
+    background-color: #bdf347;
+    margin-top: -2vw;
+}
+
+.textoApresentacao {
+    text-align: justify;
+    flex-basis: 80%;
+    font-size: 2vw;
+    margin-top: 5vw;
+}
+
+/* Sessão ilustracoesETexto */
+
+.ilustracoesETexto {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 13vw;
+    justify-content: center;
+}
+
+.tituloIlustracoes {
+    text-align: center;
+    font-size: 5vw;
+    flex-basis: 70%;
+}
+
+.container2 {
+    flex-basis: 40%;
+    height: 1vw;
+    background-color: #bdf347;
+    margin-top: -2vw;
+}
+
+/* Imagens da sessão ilustracoesETexto */
