@@ -86,9 +86,9 @@ h1 {
     margin-top: 5vw;
 }
 
-/* Sessão ilustracoesETexto */
+/* Secao ilustracoesETexto */
 
-.ilustracoesETexto {
+.textoAcimaDasIlustracoes {
     display: flex;
     flex-wrap: wrap;
     margin-top: 13vw;
@@ -96,16 +96,83 @@ h1 {
 }
 
 .tituloIlustracoes {
+    margin: 0 5vw 2vw 5vw;
     text-align: center;
     font-size: 5vw;
-    flex-basis: 70%;
+    flex-basis: 60%;
 }
+
 
 .container2 {
-    flex-basis: 40%;
+    flex-basis: 35%;
     height: 1vw;
     background-color: #bdf347;
-    margin-top: -2vw;
 }
 
-/* Imagens da sessão ilustracoesETexto */
+/* Ilustracoes */
+
+.ilustracoes {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding-top: 10vw;
+}
+
+.imagemDoacao {
+    width: 20vw;
+    margin: 0 5% 0 5%;
+}
+
+.imagemDistribuicao {
+    width: 20vw;
+    margin: 0 5% 0 5%;
+}
+
+.imagemConsumo {
+    width: 20vw;
+    margin: 0 5% 0 5%;
+}
+
+/* Legendas Ilustracoes */
+
+.legendaDoacao {
+    width: 33%;
+    text-align: center;
+    font-size: 3vw;
+}
+
+.legendaDistribuicao {
+    width: 33%;
+    text-align: center;
+    font-size: 3vw;
+}
+
+.legendaConsumo {
+    width: 33%;
+    text-align: center;
+    font-size: 3vw;
+}
+
+/* Secao FacaParte */
+
+.facaParte {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 22vw;
+    padding-bottom: 10vw;
+    justify-content: center;
+}
+
+.tituloFacaParte {
+    text-align: center;
+    margin: 0 15vw 1vw 15vw;
+    font-size: 5vw;
+    flex-basis: 38%;
+}
+
+.textoFacaParte {
+    text-align: justify;
+    flex-basis: 80%;
+    font-size: 2vw;
+    margin-top: 5vw;
+}

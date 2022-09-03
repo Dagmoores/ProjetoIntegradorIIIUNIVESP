@@ -47,11 +47,16 @@ function MainPage() {
       </section>{ /* apresentacao */ }
       
 
-      <section className="ilustracoesETexto">
+      <section className="textoAcimaDasIlustracoes">
 
         <h2 className="tituloIlustracoes"> Uma plataforma para unir esforços!</h2> { /* tituloIlustracoes */ }
-        <div className="container2"></div> { /* container */ }
+        <div className="container2"></div> { /* container2 */ }
 
+
+      </section> { /* textoAcimaDasIlustracoes */ }
+
+
+      <section className="ilustracoes">
         <img className="imagemDoacao"
           src={ doacao }
           alt="erro ao carregar imagem" 
@@ -71,7 +76,27 @@ function MainPage() {
           aria-label=""
         /> { /* imagemConsumo */ }
 
-      </section> { /* ilustracoesEtexto */}
+        <h5 className="legendaDoacao">Doação</h5> { /* legendaDoacao */}
+        <h5 className="legendaDistribuicao">Distribuição</h5> { /* legendaDistribuicao */}
+        <h5 className="legendaConsumo">Consumo</h5> { /*legendaConsumo */}
+
+      </section> { /* ilustracoes */ }
+
+
+      <section className="facaParte">
+
+        <h1 className="tituloFacaParte"> Faça Parte deste Projeto!</h1> { /* tituloFacaParte */ }
+
+        <p className="textoFacaParte">
+        Lorem ipsum et justo felis quis sed taciti suspendisse, nunc pellentesque eget facilisis 
+        gravida scelerisque vestibulum turpis, eleifend rutrum laoreet tempus ornare pretium dui. 
+        vitae himenaeos suspendisse bibendum phasellus nostra libero aliquam luctus vulputate erat, 
+        a mi cubilia augue dui urna pretium placerat donec 
+        </p> { /* textoFacaParte */ }
+
+      </section>{ /* facaParte */ }
+
+
 
       </div>
     );
