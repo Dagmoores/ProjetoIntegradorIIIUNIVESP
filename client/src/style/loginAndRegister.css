@@ -1,0 +1,78 @@
+@import "index.css";
+
+.headerLoginAndRegister {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.headerLoginAndRegister > h4 {
+    width: 5%;
+    user-select: none;
+    margin-top: 1px;
+}
+
+.botaoHome {
+    text-decoration: none;
+}
+
+.botaoHome:visited {
+    color: #bdf347; 
+}
+
+
+/* Seção Imagem, nome e botao sair */
+
+.sectionInformacaoUsuarioELogOut {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 3%;
+}
+
+.imagemENomeGoogle {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+}
+
+.h3Google {
+    width: 100%;
+    text-align: center;
+}
+
+.imagemGoogle {
+    max-width: 130px;
+    width: 50%;
+}
+
+.sair {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.botaoSairGoogle {
+    width: 10%;
+    min-width: 50px;
+    height: 150%;
+    font-size: large;
+}
+
+/* main */
+
+.mainLoginAndRegister {
+    display: flex;
+    justify-content: center;
+}
+
+/* tabela */
+
+
+.botaoTableDoacaoDistribuicaoConsumo {
+    font-size: calc(0.8em + 1vw);
+    font-family: codecPro;
+    height: 7vh;
+    margin: 1% 1% 0 1%;
+    color: #092005;
+    background-color: #ffee4c;
+}

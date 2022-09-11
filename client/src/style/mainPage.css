@@ -1,20 +1,4 @@
-/* open-sans */
-@font-face {
-    font-family: open-sans;
-    src: url(../assets/fonts/OpenSans-Regular.ttf);
-}
-
-/* codecPro */
-@font-face {
-    font-family: codecPro;
-    src: url(../assets/fonts/CodecPro-Regular.ttf);
-}
-
-html {
-    background-color: #1d2549;
-    font-family: codecPro;
-    color: #e9e3e8;
-}
+@import "index.css";
 
 header {
     display: flex;
@@ -39,7 +23,7 @@ header {
 
 main {
     display: flex;
-    margin: 11% 4% 0% 4%;
+    margin: 7% 4% 0% 4%;
     justify-content: space-between;
 }
 
@@ -176,3 +160,4 @@ h1 {
     font-size: 2vw;
     margin-top: 5vw;
 }
+

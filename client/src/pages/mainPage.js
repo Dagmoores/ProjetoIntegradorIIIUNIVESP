@@ -12,7 +12,7 @@ function MainPage() {
       <div className="mainPage">
 
         <header>
-          <a className="cadastroLogin" href="#">Cadastro / Login</a>
+          <a className="cadastroLogin" href="/cadastroELogin">Cadastro / Login</a>
         </header>{/* CadastroLogin */}
         
         <main>
