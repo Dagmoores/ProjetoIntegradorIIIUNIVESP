@@ -1,11 +1,16 @@
 import { useEffect, useState } from "react"
 import jwt_decode from "jwt-decode"
 
+//import components
+import Doadores from "../components/doaores"
+
 //import css file
 import "../style/loginAndRegister.css"
 
 //import env e instancia da chave google secreta
 const SECRET_KEY = process.env.REACT_APP_CHAVE_GOOGLE
+
+
 
 function LoginAndRegister() { 
 
@@ -45,6 +50,10 @@ function LoginAndRegister() {
   //If we don't show the sign out button
 
 
+  //state para renderizar os conteudos das div "renderElement"
+  const [ active, setActive] = useState("");
+
+
     return (
       <div className="loginAndRegister">
         <header className="headerLoginAndRegister">
@@ -77,10 +86,16 @@ function LoginAndRegister() {
 
       { Object.keys(user).length != 0 && 
         <main className="mainLoginAndRegister">
-
-          <button className="botaoTableDoacaoDistribuicaoConsumo">Doar Alimentos</button>
+          <button onClick={() => setActive("doacao")}
+          className="botaoTableDoacaoDistribuicaoConsumo">Doar Alimentos</button>
           <button className="botaoTableDoacaoDistribuicaoConsumo">Ajudar na Distribuição</button>
           <button className="botaoTableDoacaoDistribuicaoConsumo">Receber Alimentos</button>
+
+
+        <div className="renderElement">
+          {active === 'doacao' && <div>testeeeeeeeeeeee</div>}  
+        
+        </div> { /* renderElement */}
 
         </main>
       }
