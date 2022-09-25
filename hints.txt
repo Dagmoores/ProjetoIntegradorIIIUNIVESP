@@ -1,0 +1,11 @@
+exemplo de query insert no postgrs
+
+INSERT INTO doadores ( tipodealimento, bomparaconsumo, prazodevalidade, 
+					 cep, estado) VALUES ( 'maça', 'T', '2022-09-20', '14700000', 
+										  'T');
+
+
+UPDATE doadores SET usuario='dagmoores' WHERE id=1;
+
+
+

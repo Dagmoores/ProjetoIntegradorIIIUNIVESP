@@ -63,6 +63,7 @@
 .mainLoginAndRegister {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 /* tabela */
@@ -75,4 +76,66 @@
     margin: 1% 1% 0 1%;
     color: #092005;
     background-color: #ffee4c;
+}
+
+/* Render Menu */
+
+.renderElement {
+    width: 100%;
+    margin-top: 4%;
+}
+
+/* Render Doações */
+
+.minhasDoacoes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+
+.h3MinhasDoacoes {
+    width: 100%;
+    color: #fbe004;
+}
+
+.tabelaDoacoes thead > tr > th {
+    border: 1px solid #ffee4c;
+    align-text:center;
+    vertical-align: middle;
+    width: 10%;
+    margin-top: 50%;
+}
+
+.incluirDoacao {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    margin-top:10%
+}
+
+.h3IncluirDoacao {
+    width: 100%;
+    color: #fbe004;
+}
+
+/* formIncluirDoacao */ 
+
+.formIncluirDoacao {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.formIncluirDoacao > label {
+    width:100%;
+}
+
+.formIncluirDoacao > label > select {
+    margin: 10px;
+}
+
+form > label > input{
+    margin: 1%;
 }

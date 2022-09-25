@@ -1,0 +1,22 @@
+{
+  "name": "serverpi3",
+  "version": "1.0.0",
+  "description": "server side pi3",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run",
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "author": "Daniel Augusto Moore da Silva",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "nodemon": "^2.0.20",
+    "pg": "^8.8.0"
+  }
+}

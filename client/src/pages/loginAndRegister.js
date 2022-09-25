@@ -8,7 +8,7 @@ import Doadores from "../components/doaores"
 import "../style/loginAndRegister.css"
 
 //import env e instancia da chave google secreta
-const SECRET_KEY = process.env.REACT_APP_CHAVE_GOOGLE
+const SECRET_KEY = "829769390669-jmfhnsh4pg5barntm06u2bl8fm6s9tku.apps.googleusercontent.com"
 
 
 
@@ -23,11 +23,11 @@ function LoginAndRegister() {
     setUser(userObject);
     document.getElementById("login").hidden = true;
   }; 
+  
 
   function handleSignOut(event) {
     setUser({});
     document.getElementById("login").hidden = false;
-
   };
 
   useEffect(() => {
@@ -93,7 +93,7 @@ function LoginAndRegister() {
 
 
         <div className="renderElement">
-          {active === 'doacao' && <div>testeeeeeeeeeeee</div>}  
+          {active === 'doacao' && Doadores(user)}  
         
         </div> { /* renderElement */}
 
