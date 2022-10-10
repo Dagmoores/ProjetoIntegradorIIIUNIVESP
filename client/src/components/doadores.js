@@ -1,8 +1,18 @@
-import React from "react";
+import { React, useState, useEffect } from "react";
+import Axios from "axios";
+
 
 
 
 function Doadores() {
+
+
+
+    //Requisicoes para o servidor (puxando dados do bd)
+
+    Axios.get("http://localhost:8080/teste1").then(
+         res => console.log(res)
+    );
 
 
 
@@ -66,7 +76,7 @@ function Doadores() {
                     Não <input type="checkbox" id="nao" value="nao"></input>
                 </label>
 
-                <label className="validade" for="validade">Qual é a data de validade do alimento?
+                <label className="validade" htmlFor="validade">Qual é a data de validade do alimento?
                     <input type="date" id="validade" lang="pt-BR"></input> 
                 </label> { /* validade */}
 

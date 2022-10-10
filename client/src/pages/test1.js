@@ -3,28 +3,14 @@ import Axios from 'axios';
 
 import Teste2 from "./test2";
 
-// function Teste () {
-
-
-
-//     Axios.get("http://localhost:8000/teste").then(
-//         res => console.log(res));
-
-
-
-//     return (
-
-//         <div> TESTANDO </div>
-
-//     );
-// };
 
 function Teste1() {
 
         
-    let variavel1 = 'nomeDaVariavel1'
-    let variavel2 = 'variavel2'
-
+    
+    Axios.get("http://localhost:8080/teste1").then(
+        res => console.log(res)
+    );
 
 
 

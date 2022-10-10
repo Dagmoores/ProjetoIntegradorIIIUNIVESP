@@ -8,7 +8,6 @@ app.use(cors()); // Use this after the variable declaration
 //dotenv para variaveis de ambiente
 require('dotenv').config()
 
-
 //pg (postgres node)
 const { Pool, Client } = require('pg');
 const pool = new Pool();
@@ -22,23 +21,16 @@ client.connect(error => {
 });
 
 
+app.get("/teste1", ( req, res) => {
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-app.get("/teste", function (req, res) {
-    return res.send('dasdas')
-    
+    client.query("SELECT * FROM doadores", (err, result) => {
+        if (err) {
+            console.log(err.stack);
+        }
+        else { 
+            res.send(result.rows)
+        }
+    });
 });
 
 
@@ -50,8 +42,6 @@ app.get("/teste", function (req, res) {
 
 
 
-
-
-app.listen(8000, () => {
+app.listen(8080, () => {
     console.log('listening')
 });

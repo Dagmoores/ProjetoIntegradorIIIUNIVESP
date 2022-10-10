@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import jwt_decode from "jwt-decode"
 
 //import components
-import Doadores from "../components/doaores"
+import Doadores from "../components/doadores"
 
 //import css file
 import "../style/loginAndRegister.css"
@@ -54,6 +54,7 @@ function LoginAndRegister() {
   const [ active, setActive] = useState("");
 
 
+  
     return (
       <div className="loginAndRegister">
         <header className="headerLoginAndRegister">
