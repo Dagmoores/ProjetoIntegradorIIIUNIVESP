@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom'
+import Axios from "axios";
 
 //import components
 import Doadores from "../components/doadores"
@@ -12,13 +13,14 @@ function Profile() {
     const location = useLocation();
     const navigate = useNavigate();
     const [ active, setActive] = useState("");
+    const [ dados, setDados ] = useState("");
 
     
 
 
     //REDIRECT CASO NAO HAJA LOGIN
     function testarLogin() {
-        console.log(location.state)
+        // console.log(location.state)
         if(location.state === null) {
            return navigate("/")
         }
@@ -31,8 +33,15 @@ function Profile() {
         navigate("/");
       };
 
-
-
+    //REQUISICAO PARA O BACKEND DE DADOS DO USUARIO 
+    useEffect(() => {
+        Axios.get("http://localhost:8080/teste1").then(
+            res => {
+                setDados(res.data)
+            }
+        );
+    }, []);
+    
 
     
 
@@ -74,7 +83,7 @@ function Profile() {
             <button className="botaoTableDoacaoDistribuicaoConsumo">Receber Alimentos</button>
 
             <div className="renderElement">
-            {active === 'doacao' && Doadores("location.state.email")}  
+            {active === 'doacao' && Doadores(dados)}  
             </div>  {/* renderElement */}
 
             </main>

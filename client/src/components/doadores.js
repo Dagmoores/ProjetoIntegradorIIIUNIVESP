@@ -1,22 +1,14 @@
 import React, { useState } from "react";
-import Axios from "axios";
 
 
 
 
-function Doadores() {
 
+function Doadores(dados) {
 
-    //REQUISICAO PARA O BACKEND DE DADOS DO USUARIO 
-    Axios.get("http://localhost:8080/teste1").then(
-        res => {
-           for (let i = 0; i < res.data.length; i++) {
-               const values = res.data;
-               criarElementos(res.data)
-           };
-        }
-   );
+    //QUANDO CONSTRUIR OUTRAS TABELAS SETAR ABAIXO O HIDEN DAS DEMAIS AO CHAMAR ESTA, E VICE VERSA.
 
+    console.log(dados)
 
 
 
@@ -24,16 +16,8 @@ function Doadores() {
     function criarElementos(props) {
         let tipoDeAlimento = props[0].tipodealimento
         console.log(tipoDeAlimento)
-
-
-        return document.getElementById("trteste").appendChild("td")
-
-
-        
+        return document.getElementById("trteste").appendChild("td")      
     }
-
-
-
 
 
 
