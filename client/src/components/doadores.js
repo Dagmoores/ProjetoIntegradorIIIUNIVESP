@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from "react";
+import React, { useState } from "react";
 import Axios from "axios";
 
 
@@ -7,37 +7,54 @@ import Axios from "axios";
 function Doadores() {
 
 
-
-    //Requisicoes para o servidor (puxando dados do bd)
-
+    //REQUISICAO PARA O BACKEND DE DADOS DO USUARIO 
     Axios.get("http://localhost:8080/teste1").then(
-         res => console.log(res)
-    );
+        res => {
+           for (let i = 0; i < res.data.length; i++) {
+               const values = res.data;
+               criarElementos(res.data)
+           };
+        }
+   );
+
+
+
+
+    //função para criar elementos da lista de doacoes
+    function criarElementos(props) {
+        let tipoDeAlimento = props[0].tipodealimento
+        console.log(tipoDeAlimento)
+
+
+        return document.getElementById("trteste").appendChild("td")
+
+
+        
+    }
+
+
+
 
 
 
     return (
        <div className="doadores">
-
-
-     
-
        <section className="minhasDoacoes">
             <h3 className="h3MinhasDoacoes">Minhas Doações</h3>
 
             <table className="tabelaDoacoes">
                 <thead>
                     <tr>
-                        <th>Número da Doação</th>
-                        <th>Status</th>
+                        <th id="numeroDaDoacao">dsada</th>
+                        <th>values</th>
                         <th>Tipo de Alimento</th>
                         <th>Endereço para Coleta</th>
                         <th>Horários para retirada</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>teste numero</td>
+                    <tr id="trteste">
+                        {React.createElement('td', {}, 'TESTUDO')}                                              
                         <td>teste status</td>
                         <td>teste tipo</td>
                         <td>teste endereço</td>
@@ -51,6 +68,10 @@ function Doadores() {
                         <td>teste horário2</td>
                     </tr>
                 </tbody>
+
+                
+
+
             </table>
         
         </section>{ /* minhasDoacoes */ }

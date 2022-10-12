@@ -1,7 +1,6 @@
 import React from "react";
 import Axios from 'axios';
 
-import Teste2 from "./test2";
 
 
 function Teste1() {
