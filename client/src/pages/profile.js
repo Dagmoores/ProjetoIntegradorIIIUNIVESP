@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import ReactDOM from 'react-dom/client';
 import { useLocation, useNavigate } from 'react-router-dom'
+import { useForm } from 'react-hook-form'
 import Axios from "axios";
 
 //import components
@@ -13,7 +13,7 @@ function Profile() {
     const navigate = useNavigate();
     const [ active, setActive ] = useState(false);
     const [ dados, setDados ] = useState("");
-
+    const { register, handleSubmit, setValue } = useForm();
     
 
 
@@ -40,13 +40,6 @@ function Profile() {
             }
         );
     }, []);
-
-    //SETAR TABELA A SER RENDERIZADA
-    function renderizar(param) {
-        setActive(param)
-    }
-
-
 
 
     
@@ -83,7 +76,7 @@ function Profile() {
 
 
             <main className="mainLoginAndRegister">
-            <button onClick={() => renderizar(Doadores(dados))}
+            <button onClick={() => setActive(Doadores(dados, register, setValue, handleSubmit))}
             className="botaoTableDoacaoDistribuicaoConsumo">Doar Alimentos</button>
             <button className="botaoTableDoacaoDistribuicaoConsumo">Ajudar na Distribuição</button>
             <button className="botaoTableDoacaoDistribuicaoConsumo">Receber Alimentos</button>

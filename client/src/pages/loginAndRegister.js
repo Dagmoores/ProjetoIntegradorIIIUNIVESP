@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode"
 
 //CSS
-import "../style/loginAndRegister.css"
+import "../style/profile.css"
 
 const SECRET_KEY = process.env.REACT_APP_CHAVE_GOOGLE
 

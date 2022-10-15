@@ -1,6 +1,22 @@
-function Doadores(dados) {
+import Axios from "axios";
 
 
+function Doadores(dados, register, setValue, handleSubmit) {
+    
+
+    function checarCep(e) {
+        let CEP = e.target.value.replace(/\D/g, '');
+        Axios.get(`https://viacep.com.br/ws/${CEP}/json/`).catch(
+            error => {
+                if(error) {
+                    console.log(error.message)
+                }
+            }).then(
+            res => setValue("example", res.data.logradouro)
+        )
+    };          
+
+    const onSubmit = data => console.log(data)
 
 
     return (
@@ -38,8 +54,9 @@ function Doadores(dados) {
         <section className="incluirDoacao">
             <h3 className="h3IncluirDoacao">Incluir Novas Doações</h3> { /* h3IncluirDoacao */} 
 
-            <form className="formIncluirDoacao" name="formIncluirDoacao">
-                <label> Tipo de Alimento    
+            <form className="formIncluirDoacao" name="formIncluirDoacao" onSubmit={handleSubmit(onSubmit)}>
+                <label> Tipo de Alimento 
+                    <br></br>  
                     <select>
                         <option value="verdurasOuLeguminosas"> Verduras ou Leguminosas</option>
                         <option value="frutas"> Frutas </option>
@@ -51,24 +68,29 @@ function Doadores(dados) {
                     </select>
                 </label> 
 
-                <label> O alimentos está em boas condições de consumo?
-                    Sim <input type="checkbox" id="sim" value="sim"></input>
-                    Não <input type="checkbox" id="nao" value="nao"></input>
+                <label className="doacaoRadio"> O alimentos está em boas condições de consumo?
+                <br></br>
+                    Sim <input name="condicoes" type="radio" value="sim" className="doacaoRadioSim"></input>
+                    Não <input name="condicoes" type="radio" value="nao" className="doacaoRadioNao"></input>
                 </label>
 
                 <label className="validade" htmlFor="validade">Qual é a data de validade do alimento?
                     <input type="date" id="validade" lang="pt-BR"></input> 
-                </label> { /* validade */}
+                </label> 
 
                 <label className="CEP"> CEP do endereço para coleta do alimento
-                    <input type="number"></input> { /* CEP */}
+                    <input type="number" {...register("CEP", {required:true, max:999999999})} onBlur={checarCep}/> 
                 </label>
 
                 <label className="endereco">Qual é o endreço para coleta do alimento? 
-                    <input type="text"></input>
-                </label> { /* endereço */}
+                    <input type="text" {...register("example")}/>  
+                </label> 
 
-                <input type="submit" value="Enviar"></input>
+                <label className="numero"> Número do logradouro
+                    <input type="number" ></input> 
+                </label>
+
+                <input type="submit" value="Enviar" ></input>
                 
             </form>   
         
