@@ -28,7 +28,6 @@ app.get("/teste1", ( req, res) => {
             console.log(err.stack);
         }
         else {
-            console.log(result.rows)
             res.send(result.rows)
         }
     });

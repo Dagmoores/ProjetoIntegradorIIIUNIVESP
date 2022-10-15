@@ -1,18 +1,17 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import ReactDOM from 'react-dom/client';
 import { useLocation, useNavigate } from 'react-router-dom'
 import Axios from "axios";
 
 //import components
 import Doadores from "../components/doadores"
 
-
-
-
 function Profile() { 
+
 
     const location = useLocation();
     const navigate = useNavigate();
-    const [ active, setActive] = useState("");
+    const [ active, setActive ] = useState(false);
     const [ dados, setDados ] = useState("");
 
     
@@ -41,7 +40,14 @@ function Profile() {
             }
         );
     }, []);
-    
+
+    //SETAR TABELA A SER RENDERIZADA
+    function renderizar(param) {
+        setActive(param)
+    }
+
+
+
 
     
 
@@ -77,13 +83,12 @@ function Profile() {
 
 
             <main className="mainLoginAndRegister">
-            <button onClick={() => setActive("doacao")}
+            <button onClick={() => renderizar(Doadores(dados))}
             className="botaoTableDoacaoDistribuicaoConsumo">Doar Alimentos</button>
             <button className="botaoTableDoacaoDistribuicaoConsumo">Ajudar na Distribuição</button>
             <button className="botaoTableDoacaoDistribuicaoConsumo">Receber Alimentos</button>
 
-            <div className="renderElement">
-            {active === 'doacao' && Doadores(dados)}  
+            <div className="renderElement"> {active}
             </div>  {/* renderElement */}
 
             </main>

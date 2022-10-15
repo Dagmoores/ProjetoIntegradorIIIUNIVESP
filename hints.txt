@@ -2,3 +2,14 @@ document.getElementById("login").hidden = true;
 
 
 
+                    <tr id="trteste">
+                        {criarElementos(dados)}                                              
+                        <td>teste status</td>
+                        <td>teste tipo</td>
+                        <td>teste endereço</td>
+                        <td>teste horário</td>
+                    </tr>
+
+
+
+                    

@@ -1,23 +1,5 @@
-import React, { useState } from "react";
-
-
-
-
-
 function Doadores(dados) {
 
-    //QUANDO CONSTRUIR OUTRAS TABELAS SETAR ABAIXO O HIDEN DAS DEMAIS AO CHAMAR ESTA, E VICE VERSA.
-
-    console.log(dados)
-
-
-
-    //função para criar elementos da lista de doacoes
-    function criarElementos(props) {
-        let tipoDeAlimento = props[0].tipodealimento
-        console.log(tipoDeAlimento)
-        return document.getElementById("trteste").appendChild("td")      
-    }
 
 
 
@@ -29,36 +11,29 @@ function Doadores(dados) {
             <table className="tabelaDoacoes">
                 <thead>
                     <tr>
-                        <th id="numeroDaDoacao">dsada</th>
-                        <th>values</th>
                         <th>Tipo de Alimento</th>
+                        <th>Prazo de Validade</th>
                         <th>Endereço para Coleta</th>
                         <th>Horários para retirada</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr id="trteste">
-                        {React.createElement('td', {}, 'TESTUDO')}                                              
-                        <td>teste status</td>
-                        <td>teste tipo</td>
-                        <td>teste endereço</td>
-                        <td>teste horário</td>
-                    </tr>
-                    <tr>
-                        <td>teste numero2</td>
-                        <td>teste status2</td>
-                        <td>teste tipo2</td>
-                        <td>teste endereço2</td>
-                        <td>teste horário2</td>
-                    </tr>
+                <tbody id="tableBody">
+                    {
+                    dados.map((item, i) => 
+                        
+                        <tr key={i}>
+                            <td>{item.tipodealimento}</td>
+                            <td>{item.validade}</td>
+                            <td>{item.endereco}</td>
+                            <td>{item.horarioParaRetirada}</td>
+                        </tr>
+                )}
                 </tbody>
-
-                
-
-
             </table>
-        
         </section>{ /* minhasDoacoes */ }
+
+
+
 
         <section className="incluirDoacao">
             <h3 className="h3IncluirDoacao">Incluir Novas Doações</h3> { /* h3IncluirDoacao */} 

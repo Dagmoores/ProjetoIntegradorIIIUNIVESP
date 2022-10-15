@@ -1,0 +1,27 @@
+            <button onClick={() => setActive("doacao")}
+            Doadores(dados, CriarElementos)
+
+
+
+                    function CriarElementos(dadosArray) {
+
+            for (let i = 0; i < dadosArray.length; i++) {
+            
+                for (var key in dadosArray[i]) {
+                    console.log('teste')
+                };
+            };
+        };
+
+
+
+
+
+
+
+            //RENDERIZAR APOS SETAR
+    useEffect(() => {
+        if (active != false){
+            const a = document.querySelector('#tableBody')
+        }
+    }, [active]);   
