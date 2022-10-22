@@ -1,3 +1,0 @@
-{...register("CEP"), {required:true, maxLength: 8}}
-
-{...register("example"), {required:true}}

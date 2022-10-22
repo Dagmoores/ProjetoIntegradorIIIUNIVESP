@@ -99,12 +99,9 @@
     color: #fbe004;
 }
 
-.tabelaDoacoes thead > tr > th {
+.tabelaDoacoesTh {
     border: 1px solid #ffee4c;
-    align-text:center;
-    vertical-align: middle;
-    width: 10%;
-    margin-top: 50%;
+
 }
 
 .incluirDoacao {
@@ -138,4 +135,17 @@
 
 form > label > input{
     margin: 1%;
+}
+
+.tabelaDoacoesThNula {
+    border: 0;
+}
+
+.tabelaDoacoesTdNula {
+    width: 1%;
+}
+
+.tabelaDoacoesInputButtonX {
+    width: 100%;
+    min-width: 10px;
 }

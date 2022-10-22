@@ -4,7 +4,6 @@ import "../style/mainPage.css"
 //import de imagens
 import coracao from "../assets/images/coracao.png"
 import doacao from "../assets/images/doacao.png"
-import distribuicao from "../assets/images/caminhao.png"
 import consumo from "../assets/images/consumo.png"
 
 function MainPage() {
@@ -24,7 +23,7 @@ function MainPage() {
           />{ /* imgCoracao */ }
 
           <div className="tituloESubTitulo">
-            <h1 className="titulo">Projeto Mais Alimentos</h1> { /* titulo */}
+            <h1 className="titulo">Mais Alimentos</h1> { /* titulo */}
             <h4 className="subTitulo">A Plataforma de Doação de Alimentos</h4> { /* subTitulo */}
           </div> { /* tituloESubTitulo */}
 
@@ -36,13 +35,14 @@ function MainPage() {
         <div className="container"></div> { /* container */ }
 
         <p className="textoApresentacao">
-           Lorem ipsum et justo felis quis sed taciti suspendisse, nunc pellentesque eget facilisis 
-           gravida scelerisque vestibulum turpis, eleifend rutrum laoreet tempus ornare pretium dui. 
-           vitae himenaeos suspendisse bibendum phasellus nostra libero aliquam luctus vulputate erat, a 
-           mi cubilia augue dui urna pretium placerat donec senectus, porta nulla felis eleifend tempor 
-           phasellus etiam lacus hendrerit. dictum praesent tellus etiam curabitur hac semper mauris leo 
-           suscipit, aliquam mi vehicula tincidunt sagittis praesent eleifend pellentesque, elementum 
-           cursus conubia donec dictumst fringilla cras molestie. 
+        O website tem como objetivo atender a grade curricular dos cursos do Eixo Computação da
+        Universidade Virtual de São Paulo - UNIVESP e disponibilizar um website para que empresas
+        que comercializam alimentos perecíveis (frutas, verduras e legumes) para entidades 
+        filantrópicas, etc. do município de Bebedouro-SP.
+        Os alimentos perecíveis comercializados que não apresentarem um aspecto atraente para o 
+        consumidor, mais em condições de consumo e que provavelmente seriam descartados, com o 
+        website podem ser doados.
+
         </p> { /* textoApresentacao */ }
       </section>{ /* apresentacao */ }
       
@@ -63,13 +63,6 @@ function MainPage() {
           aria-label=""
         /> { /* imagemDoacao */ }
 
-        <img className="imagemDistribuicao"
-          src={ distribuicao }
-          alt="erro ao carregar imagem" 
-          aria-label=""   
-        /> { /* imagemDistribuicao */ }
-
-
         <img className="imagemConsumo"
           src={ consumo }
           alt="erro ao carregar imagem" 
@@ -77,7 +70,6 @@ function MainPage() {
         /> { /* imagemConsumo */ }
 
         <h5 className="legendaDoacao">Doação</h5> { /* legendaDoacao */}
-        <h5 className="legendaDistribuicao">Distribuição</h5> { /* legendaDistribuicao */}
         <h5 className="legendaConsumo">Consumo</h5> { /*legendaConsumo */}
 
       </section> { /* ilustracoes */ }

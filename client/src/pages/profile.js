@@ -12,7 +12,7 @@ function Profile() {
     const location = useLocation();
     const navigate = useNavigate();
     const [ active, setActive ] = useState(false);
-    const [ dados, setDados ] = useState("");
+    const [ dadosDoacao, setDadosDoacao ] = useState("");
     const { register, handleSubmit, setValue } = useForm();
     
 
@@ -32,15 +32,26 @@ function Profile() {
         navigate("/");
       };
 
-    //REQUISICAO PARA O BACKEND DE DADOS DO USUARIO 
+
+    //FORMATAR DADOS ANTES DE ENVIAR AO COMPONENTE
+    const formatarDados = (dados) => {
+        for (let i = 0 ; i < dados.length; i++) {
+            dados[i].horario = 12
+        }
+    }
+
+    //REQUISICAO PARA O BACKEND DE DADOS DE DOACAO DO USUARIO 
     useEffect(() => {
-        Axios.get("http://localhost:8080/teste1").then(
+        Axios.get("http://localhost:8080/doacao1").then(
             res => {
-                setDados(res.data)
+                formatarDados(res.data)
+                setDadosDoacao(res.data)
+                console.log(res.data)
             }
         );
-    }, []);
+    }, [active]);
 
+    
 
     
 
@@ -76,9 +87,8 @@ function Profile() {
 
 
             <main className="mainLoginAndRegister">
-            <button onClick={() => setActive(Doadores(dados, register, setValue, handleSubmit))}
+            <button onClick={() => setActive(Doadores(dadosDoacao, register, setValue, handleSubmit))}
             className="botaoTableDoacaoDistribuicaoConsumo">Doar Alimentos</button>
-            <button className="botaoTableDoacaoDistribuicaoConsumo">Ajudar na Distribuição</button>
             <button className="botaoTableDoacaoDistribuicaoConsumo">Receber Alimentos</button>
 
             <div className="renderElement"> {active}
