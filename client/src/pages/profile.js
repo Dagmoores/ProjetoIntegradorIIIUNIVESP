@@ -5,6 +5,7 @@ import Axios from "axios";
 
 //import components
 import Doadores from "../components/doadores"
+import Receber from '../components/receber';
 
 function Profile() { 
 
@@ -13,7 +14,9 @@ function Profile() {
     const navigate = useNavigate();
     const [ active, setActive ] = useState(false);
     const [ dadosDoacao, setDadosDoacao ] = useState("");
+    const [ dadosAlimentos, setDadosAlimentos ] = useState("");
     const { register, handleSubmit, setValue } = useForm();
+    const [ disponibilidade, setDisponibilidade ] = useState("");
     
 
 
@@ -36,9 +39,16 @@ function Profile() {
     //FORMATAR DADOS ANTES DE ENVIAR AO COMPONENTE
     const formatarDados = (dados) => {
         for (let i = 0 ; i < dados.length; i++) {
-            dados[i].horario = 12
-        }
-    }
+
+            //HORARIO
+            const strHorario = dados[i].horario;
+            dados[i].horario = strHorario.split(":00")[0];
+
+            //VALIDADE
+            const strValidade = dados[i].prazodevalidade;
+            dados[i].prazodevalidade = strValidade.split("T")[0];
+        };
+    };
 
     //REQUISICAO PARA O BACKEND DE DADOS DE DOACAO DO USUARIO 
     useEffect(() => {
@@ -46,11 +56,17 @@ function Profile() {
             res => {
                 formatarDados(res.data)
                 setDadosDoacao(res.data)
-                console.log(res.data)
+                // console.log(res.data)
             }
         );
     }, [active]);
 
+    //REQUISICAO PARA O BACKEND DE DADOS DE ALIMENTOS
+    useEffect(() => {
+        Axios.get("http://localhost:8080/alimentos1").then(
+            res => setDadosAlimentos(res.data)
+        );
+    }, [active]);
     
 
     
@@ -87,9 +103,13 @@ function Profile() {
 
 
             <main className="mainLoginAndRegister">
-            <button onClick={() => setActive(Doadores(dadosDoacao, register, setValue, handleSubmit))}
+            <button onClick={() => setActive(Doadores(dadosDoacao, register, 
+            setValue, handleSubmit))}
             className="botaoTableDoacaoDistribuicaoConsumo">Doar Alimentos</button>
-            <button className="botaoTableDoacaoDistribuicaoConsumo">Receber Alimentos</button>
+
+            <button onClick={() => setActive(Receber(dadosDoacao, dadosAlimentos, 
+            disponibilidade, setDisponibilidade))}
+            className="botaoTableDoacaoDistribuicaoConsumo">Receber Alimentos</button>
 
             <div className="renderElement"> {active}
             </div>  {/* renderElement */}
