@@ -1,3 +1,5 @@
+import Axios from "axios";
+
 //CSS
 import "../style/receber.css";
 
@@ -9,35 +11,47 @@ import autoColetar from "../assets/images/auto-coletar.png";
 function Receber(dadosDoacao, dadosAlimentos) {
 
 
-
     //RENDERIZAR ELEMENTOS LI
     const renderizarLi = (dadosDoacao, dadosAlimentos) => {
-      
+
         const arrayRenderizar = []
+        let nomeDoAlimento;
+        let prazoDeValidade;
+        let endereco;
+        let numero;
+        let id;
+        let disponivel;
 
         //JUNCAO DOS DADOS DE DUAS TABELAS EM UM MESMO ARRAY PARA A RENDERIZACAO
         dadosDoacao.map((itemDoacao, i) => {
-            let nomeDoAlimento = itemDoacao.tipodealimento;
-            let prazoDeValidade = itemDoacao.prazodevalidade;
-            let endereco = itemDoacao.endereco;
-            let numero = itemDoacao.numero;
-            let disponivel;
 
-        dadosAlimentos.map((itemAlimentos, i) => {
-            disponivel = itemAlimentos.disponivel;
+            nomeDoAlimento = itemDoacao.tipodealimento;
+            prazoDeValidade = itemDoacao.prazodevalidade;
+            endereco = itemDoacao.endereco;
+            numero = itemDoacao.numero;
+            id = itemDoacao.id;
+
+        arrayRenderizar.push({
+            nomeDoAlimento, prazoDeValidade, endereco, numero, disponivel, id
         });
-            arrayRenderizar.push({
-                nomeDoAlimento, prazoDeValidade, endereco, numero, disponivel
-            });
-        });
+    });
+
+    dadosAlimentos.map((itemAlimento, i) => {
+        arrayRenderizar[i].disponivel = itemAlimento.disponivel        
+    });
+    
+
+    const setarIndisponivel = (id) => {
+        Axios.get(`http://localhost:8080/setarIndisponivel?ID=${id}`)
+    }
 
         return (
             arrayRenderizar.map((item, i) => {
                 if(item.disponivel === true) {
                     return (
-                        <li key={i}>
-                            <button className="aceitarDoacao">
-                                <img className="autoColetar" src={autoColetar}></img>
+                        <li key={i} >
+                            <button id={item.id} className="ButtonAceitarDoacao" 
+                            onClick={(event) => setarIndisponivel(event.target.id)}>
                             </button>
                             {item.nomeDoAlimento}, {" "}
                             {item.prazoDeValidade}, {" "}

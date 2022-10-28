@@ -47,10 +47,6 @@ function Doadores(dadosDoacao, register, setValue, handleSubmit) {
             window.location.reload(true))
     };
 
-
-
-
-
     return (
        <div className="doadores">
        <section className="minhasDoacoes">

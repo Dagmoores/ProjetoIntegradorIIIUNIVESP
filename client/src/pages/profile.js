@@ -17,7 +17,7 @@ function Profile() {
     const [ dadosAlimentos, setDadosAlimentos ] = useState("");
     const { register, handleSubmit, setValue } = useForm();
     const [ disponibilidade, setDisponibilidade ] = useState("");
-    
+
 
 
     //REDIRECT CASO NAO HAJA LOGIN
@@ -56,7 +56,6 @@ function Profile() {
             res => {
                 formatarDados(res.data)
                 setDadosDoacao(res.data)
-                // console.log(res.data)
             }
         );
     }, [active]);

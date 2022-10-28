@@ -24,7 +24,7 @@ client.connect(error => {
 //REQ DE DADOS PARA PREENCHER TABELA DOACAO
 app.get("/doacao1", ( req, res) => {
 
-    client.query("SELECT * FROM doadores", (err, result) => {
+    client.query("SELECT * FROM doadores ORDER BY id DESC", (err, result) => {
         if (err) {
             console.log(err.stack);
         }
@@ -43,7 +43,6 @@ app.get("/doacao2", (req, res) => {
     const endereco = req.query.endereco;
     const numero = req.query.numero;
     const horario = req.query.horario;
-    // console.log(req.query)
 
     const text = "INSERT INTO doadores (tipodealimento, prazodevalidade, endereco, cep, numero, horario, usuario) \
     VALUES ($1, $2, $3, $4, $5, $6, 'danielTESTE')";
@@ -54,7 +53,6 @@ app.get("/doacao2", (req, res) => {
         if(err) {
             console.log(err.stack)
         } else {
-            // console.log(res)
             atualizarTabelaAlimentos()
         }
     });
@@ -105,24 +103,24 @@ const atualizarTabelaAlimentos = () => {
             client.query(text2, [], (err, result) => {
                 if(err) {
                     console.log(err.stack);
-                } else {
-                        if(result.rows[0].idalimento == undefined) {
+                } 
+                else {
+                        if(result.rows[0] === undefined) {
                             resolve(null)
-                        } else {
+                        } 
+                        else {
                             resolve(result.rows[0].idalimento); 
-                        }
-                        
+                        }              
                 }
             }) 
         })
-        return promise;
+        // return promise;
     };
 
 
     async function compararDados() {
         const id1 = await getId1()
         const id2 = await getId2()
-        console.log(id1, id2)
 
         if(id1 != id2) {
             client.query("INSERT INTO alimentos (idalimento, disponivel) VALUES ($1, $2)", 
@@ -145,13 +143,25 @@ app.get("/alimentos1", (req, res) => {
         if(err) {
             console.log(err.stack);
         }else {
-            // console.log(result)
             res.send(result.rows)
         }
     })
 });
 
+//SETAR STATUS DO ALIMENTO COMO INDISPONIVEL
+app.get("/setarIndisponivel", (req, res) => {
+    const text = "UPDATE public.alimentos SET disponivel=FALSE WHERE idAlimento = $1"
+    const values = [req.query.ID]
 
+    console.log(values)
+    client.query(text, values, (err, result) => {
+        if(err) {
+            console.log(err);
+        } else {
+            console.log(result.rows);
+        }
+    });
+});
 
 
 app.listen(8080, () => {
