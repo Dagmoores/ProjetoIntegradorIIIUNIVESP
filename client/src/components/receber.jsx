@@ -3,13 +3,7 @@ import Axios from "axios";
 //CSS
 import "../style/receber.css";
 
-//IMAGE 
-import autoColetar from "../assets/images/auto-coletar.png";
-
-
-
 function Receber(dadosDoacao, dadosAlimentos) {
-
 
     //RENDERIZAR ELEMENTOS LI
     const renderizarLi = (dadosDoacao, dadosAlimentos) => {
@@ -23,7 +17,7 @@ function Receber(dadosDoacao, dadosAlimentos) {
         let disponivel;
 
         //JUNCAO DOS DADOS DE DUAS TABELAS EM UM MESMO ARRAY PARA A RENDERIZACAO
-        dadosDoacao.map((itemDoacao, i) => {
+        dadosDoacao.forEach((itemDoacao, i) => {
 
             nomeDoAlimento = itemDoacao.tipodealimento;
             prazoDeValidade = itemDoacao.prazodevalidade;
@@ -36,14 +30,19 @@ function Receber(dadosDoacao, dadosAlimentos) {
         });
     });
 
-    dadosAlimentos.map((itemAlimento, i) => {
+    dadosAlimentos.forEach((itemAlimento, i) => {
+        // console.log("item",itemAlimento)
+        // console.log("array",arrayRenderizar[i])
         arrayRenderizar[i].disponivel = itemAlimento.disponivel        
     });
     
 
     const setarIndisponivel = (id) => {
-        Axios.get(`http://localhost:8080/setarIndisponivel?ID=${id}`)
-    }
+        console.log(id)
+        Axios.get(`http://localhost:8080/setarIndisponivel?ID=${id}`).then(
+            window.location.reload(true)
+        );
+    };
 
         return (
             arrayRenderizar.map((item, i) => {

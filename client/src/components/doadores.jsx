@@ -20,7 +20,6 @@ function Doadores(dadosDoacao, register, setValue, handleSubmit) {
 
     //FORM SUBMIT
     const onSubmit = data => {
-        const form = document.querySelector("#formDoacao")
         enviarReqDoacao(data)
         window.location.reload(true)
     };

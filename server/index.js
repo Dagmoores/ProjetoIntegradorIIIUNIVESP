@@ -24,7 +24,7 @@ client.connect(error => {
 //REQ DE DADOS PARA PREENCHER TABELA DOACAO
 app.get("/doacao1", ( req, res) => {
 
-    client.query("SELECT * FROM doadores ORDER BY id DESC", (err, result) => {
+    client.query("SELECT * FROM doadores ORDER BY id ASC", (err, result) => {
         if (err) {
             console.log(err.stack);
         }
@@ -138,7 +138,7 @@ const atualizarTabelaAlimentos = () => {
 //REQ DE DADOS DE ALIMENTOS
 app.get("/alimentos1", (req, res) => {
 
-    const text = "SELECT * FROM alimentos"
+    const text = "SELECT * FROM alimentos ORDER BY idalimento ASC"
     client.query(text, [], (err, result) => {
         if(err) {
             console.log(err.stack);
