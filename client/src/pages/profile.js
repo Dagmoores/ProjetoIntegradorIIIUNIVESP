@@ -52,7 +52,7 @@ function Profile() {
 
     //REQUISICAO PARA O BACKEND DE DADOS DE DOACAO DO USUARIO 
     useEffect(() => {
-        Axios.get("http://localhost:8080/doacao1").then(
+        Axios.get("https://maisalimentos-server.herokuapp.com/doacao1").then(
             res => {
                 formatarDados(res.data)
                 setDadosDoacao(res.data)
@@ -62,7 +62,7 @@ function Profile() {
 
     //REQUISICAO PARA O BACKEND DE DADOS DE ALIMENTOS
     useEffect(() => {
-        Axios.get("http://localhost:8080/alimentos1").then(
+        Axios.get("https://maisalimentos-server.herokuapp.com/alimentos1").then(
             res => setDadosAlimentos(res.data)
         );
     }, [active]);

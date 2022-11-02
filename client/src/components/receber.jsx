@@ -39,7 +39,7 @@ function Receber(dadosDoacao, dadosAlimentos) {
 
     const setarIndisponivel = (id) => {
         console.log(id)
-        Axios.get(`http://localhost:8080/setarIndisponivel?ID=${id}`).then(
+        Axios.get(`https://maisalimentos-server.herokuapp.com/setarIndisponivel?ID=${id}`).then(
             window.location.reload(true)
         );
     };

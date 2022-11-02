@@ -26,7 +26,7 @@ function Doadores(dadosDoacao, register, setValue, handleSubmit) {
 
     //ENVIAR DADOS FORM AO BACKEND
     const enviarReqDoacao = (data) => {
-        Axios.get("http://localhost:8080/doacao2", {
+        Axios.get("https://maisalimentos-server.herokuapp.com/doacao2", {
             params: {
                     tipodealimento: data.tipoDeAlimento,
                     validade: data.validade,
@@ -41,7 +41,7 @@ function Doadores(dadosDoacao, register, setValue, handleSubmit) {
     //EXCLUIR DOACAO
     function excluirDoacao(id) {
         Axios.delete(
-            `http://localhost:8080/doacao3/${id}`
+            `https://maisalimentos-server.herokuapp.com/doacao3/${id}`
         ).then(
             window.location.reload(true))
     };

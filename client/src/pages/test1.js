@@ -7,9 +7,9 @@ function Teste1() {
 
         
     
-    Axios.get("http://localhost:8080/teste1").then(
-        res => console.log(res)
-    );
+    // Axios.get("http://localhost:8080/teste1").then(
+    //     res => console.log(res)
+    // );
 
 
 
