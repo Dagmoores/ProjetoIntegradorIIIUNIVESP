@@ -1,0 +1,21 @@
+.textTermsOfUse {
+    margin: 0 10% 0 10%;
+    text-align: justify;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.pTitleTemsOfUse {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.titleTemsOfUse {
+    justify-self: end;
+    color:#bdf347;
+    font-weight: bold;
+}
+
+.itensTerms {
+    color: #bdf347;
+}

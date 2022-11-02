@@ -11,8 +11,9 @@
     margin-top: 1px;
 }
 
-.botaoHome {
+.botaoHome:link {
     text-decoration: none;
+    color: #bdf347;
 }
 
 .botaoHome:visited {

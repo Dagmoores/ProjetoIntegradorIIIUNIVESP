@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route, } from "react-router-dom";
 import MainPage from "./pages/mainPage";
 import LoginAndRegister from "./pages/loginAndRegister";
 import Profile from "./pages/profile";
-import Teste1 from "./pages/test1";
+import TermsOfUse from "./pages/termsOfUse";
 
 
 
@@ -16,7 +16,7 @@ const App = () => {
       <Route path="/" element={<MainPage />} />
       <Route path="/cadastroELogin" element={<LoginAndRegister />} />
       <Route path="/profile" element={<Profile />} />
-      <Route path="/teste1" element={<Teste1 />} />
+      <Route path="/termsOfUse" element={<TermsOfUse />} />
 
     </Routes>
   </BrowserRouter>

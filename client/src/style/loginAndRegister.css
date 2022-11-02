@@ -1,0 +1,30 @@
+.tituloLogin {
+    text-align: center;
+    color:crimson;
+}
+
+.loginGoogle {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.textAbaixoLogin {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.infoUsoDeDados {
+    text-align: center;
+    width: 70%;
+}
+
+.linkTermsOfUSe:link {
+    color:blanchedalmond;
+}
+
+.linkTermsOfUSe:visited {
+    color:blanchedalmond;
+}
+
