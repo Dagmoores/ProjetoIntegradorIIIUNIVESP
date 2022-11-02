@@ -4,7 +4,7 @@ import "../style/mainPage.css"
 //import de imagens
 import coracao from "../assets/images/coracao.png"
 import doacao from "../assets/images/doacao.png"
-import consumo from "../assets/images/consumo.png"
+import consumo from "../assets/images/consumo.jpg"
 
 function MainPage() {
     return (

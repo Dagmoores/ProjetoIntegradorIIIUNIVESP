@@ -72,7 +72,7 @@ function Doadores(dadosDoacao, register, setValue, handleSubmit) {
                             <td className= "tabelaDoacoesTdNula">
                                 <input className="tabelaDoacoesInputButtonX" id={item.id}
                                 onClick={(event) => excluirDoacao(event.target.id)}
-                                type="image" title="Excluir Doação" src={buttonX} 
+                                type="image" alt="Excluir Doação" title="Excluir Doação" src={buttonX} 
                                 />
                             </td>
                         </tr>

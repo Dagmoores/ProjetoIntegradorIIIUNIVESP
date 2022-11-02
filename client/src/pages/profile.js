@@ -21,13 +21,13 @@ function Profile() {
 
 
     //REDIRECT CASO NAO HAJA LOGIN
-    function testarLogin() {
-        // console.log(location.state)
+    const testarLogin = () => {
         if(location.state === null) {
            return navigate("/")
         }
     }
-    useEffect(() => testarLogin(),[])
+    
+    useEffect(() => testarLogin())
 
     //BOTAO SAIR
     function handleSignOut(event) {
@@ -83,7 +83,8 @@ function Profile() {
 
             { location.state && 
             <div className="imagemENomeGoogle">
-                <img className="imagemGoogle" src= {location.state.picture}></img> { /* imagemGoogle */ }
+                <img className="imagemGoogle" alt="Imagem do Usuário"
+                src= {location.state.picture}></img> { /* imagemGoogle */ }
                 <h3 className="h3Google"> {location.state.name} </h3> { /* h3Google */ }
             </div> /* imagemENomeGoogle */ 
             }
@@ -92,7 +93,7 @@ function Profile() {
             <section className="sectionInformacaoUsuarioELogOut">
 
                 <div className="sair">
-                { Object.keys(location).length != 0 && 
+                { Object.keys(location).length !== 0 && 
                     <button className="botaoSairGoogle" onClick = { e => handleSignOut(e)}> 
                     Sair 
                     </button> /* botaoSairGoogle */
