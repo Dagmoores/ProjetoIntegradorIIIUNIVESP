@@ -1,0 +1,2 @@
+2- coletar usuario e renderizar pagina apenas para o usuario especifico. 
+3- google login processo para lançar em produção 

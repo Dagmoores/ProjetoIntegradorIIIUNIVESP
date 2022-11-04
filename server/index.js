@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 8080
 
 //cors policy
 var cors = require('cors');
@@ -141,7 +141,7 @@ const atualizarTabelaAlimentos = () => {
 };
 
 //REQ DE DADOS DE ALIMENTOS
-app.get("/alimentos1", (req, res) => {
+app.post("/alimentos1", (req, res) => {
 
     const text = "SELECT * FROM alimentos ORDER BY idalimento ASC"
     client.query(text, [], (err, result) => {

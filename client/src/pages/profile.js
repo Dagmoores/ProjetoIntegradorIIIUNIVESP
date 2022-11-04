@@ -19,14 +19,12 @@ function Profile() {
     const [ disponibilidade, setDisponibilidade ] = useState("");
 
 
-
     //REDIRECT CASO NAO HAJA LOGIN
     const testarLogin = () => {
         if(location.state === null) {
-           return navigate("/")
+            return navigate("/")
         }
     }
-    
     useEffect(() => testarLogin())
 
     //BOTAO SAIR
@@ -52,7 +50,7 @@ function Profile() {
 
     //REQUISICAO PARA O BACKEND DE DADOS DE DOACAO DO USUARIO 
     useEffect(() => {
-        Axios.get("https://maisalimentos-server.herokuapp.com/doacao1").then(
+        Axios.get("http://localhost:8080/doacao1").then(
             res => {
                 formatarDados(res.data)
                 setDadosDoacao(res.data)
@@ -62,7 +60,10 @@ function Profile() {
 
     //REQUISICAO PARA O BACKEND DE DADOS DE ALIMENTOS
     useEffect(() => {
-        Axios.get("https://maisalimentos-server.herokuapp.com/alimentos1").then(
+        Axios.post("http://localhost:8080/alimentos1", {params: {
+            email: location.state.email
+        }})
+        .then(
             res => setDadosAlimentos(res.data)
         );
     }, [active]);
