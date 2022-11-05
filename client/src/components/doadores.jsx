@@ -27,7 +27,7 @@ function Doadores(dadosDoacaoUsuario, register, setValue, handleSubmit, usuario)
     //ENVIAR DADOS FORM AO BACKEND
     const enviarReqDoacao = (data) => {
         console.log(data)
-        Axios.get("http://localhost:8080/doacao2", {
+        Axios.get("https://maisalimentos-server.herokuapp.com/doacao2", {
             params: {
                     tipodealimento: data.tipoDeAlimento,
                     validade: data.validade,
