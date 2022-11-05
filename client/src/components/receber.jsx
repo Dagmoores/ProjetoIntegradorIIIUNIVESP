@@ -8,6 +8,7 @@ function Receber(dadosDoacao, dadosAlimentos) {
     //RENDERIZAR ELEMENTOS LI
     const renderizarLi = (dadosDoacao, dadosAlimentos) => {
 
+
         const arrayRenderizar = []
         let nomeDoAlimento;
         let prazoDeValidade;
@@ -18,6 +19,7 @@ function Receber(dadosDoacao, dadosAlimentos) {
 
         //JUNCAO DOS DADOS DE DUAS TABELAS EM UM MESMO ARRAY PARA A RENDERIZACAO
         dadosDoacao.forEach((itemDoacao, i) => {
+
 
             nomeDoAlimento = itemDoacao.tipodealimento;
             prazoDeValidade = itemDoacao.prazodevalidade;
@@ -31,8 +33,6 @@ function Receber(dadosDoacao, dadosAlimentos) {
     });
 
     dadosAlimentos.forEach((itemAlimento, i) => {
-        // console.log("item",itemAlimento)
-        // console.log("array",arrayRenderizar[i])
         arrayRenderizar[i].disponivel = itemAlimento.disponivel        
     });
     

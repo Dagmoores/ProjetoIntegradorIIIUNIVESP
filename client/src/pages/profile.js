@@ -9,14 +9,16 @@ import Receber from '../components/receber';
 
 function Profile() { 
 
-
     const location = useLocation();
     const navigate = useNavigate();
     const [ active, setActive ] = useState(false);
     const [ dadosDoacao, setDadosDoacao ] = useState("");
+    const [ dadosDoacaoUsuario, setDadosDoacaoUsuario ] = useState("");
     const [ dadosAlimentos, setDadosAlimentos ] = useState("");
     const { register, handleSubmit, setValue } = useForm();
     const [ disponibilidade, setDisponibilidade ] = useState("");
+
+    const usuario = location.state.email
 
 
     //REDIRECT CASO NAO HAJA LOGIN
@@ -58,11 +60,25 @@ function Profile() {
         );
     }, [active]);
 
+    //REQUISICAO PARA O BACKEND DE DADOS DE DOACAO DO USUARIO 
+    useEffect(() => {
+        Axios.get("http://localhost:8080/dadosDoacaoUsuario", {params: {
+            usuario: location.state.email
+        }}).then(
+            res => {
+                formatarDados(res.data)
+                setDadosDoacaoUsuario(res.data)
+            }
+        );
+    }, [active]);
+
+
+
+
+
     //REQUISICAO PARA O BACKEND DE DADOS DE ALIMENTOS
     useEffect(() => {
-        Axios.post("http://localhost:8080/alimentos1", {params: {
-            email: location.state.email
-        }})
+        Axios.get("http://localhost:8080/alimentos1")
         .then(
             res => setDadosAlimentos(res.data)
         );
@@ -104,8 +120,8 @@ function Profile() {
 
 
             <main className="mainLoginAndRegister">
-            <button onClick={() => setActive(Doadores(dadosDoacao, register, 
-            setValue, handleSubmit))}
+            <button onClick={() => setActive(Doadores(dadosDoacaoUsuario, register, 
+            setValue, handleSubmit, usuario))}
             className="botaoTableDoacaoDistribuicaoConsumo">Doar Alimentos</button>
 
             <button onClick={() => setActive(Receber(dadosDoacao, dadosAlimentos, 

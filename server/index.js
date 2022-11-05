@@ -1,6 +1,12 @@
 const express = require("express");
 const app = express();
+const bodyParser = require("body-parser");
 const PORT = process.env.PORT || 8080
+
+
+//Here we are configuring express to use body-parser as middle-ware.
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 //cors policy
 var cors = require('cors');
@@ -42,16 +48,21 @@ app.get("/doacao1", ( req, res) => {
 //RECEBIMENTO DE DADOS DO FORM DOACAO
 app.get("/doacao2", (req, res) => {
 
+    console.log(req.query.usuario)
+
+
     const tipodealimento = req.query.tipodealimento;
     const validade = req.query.validade;
     const cep = req.query.cep;
     const endereco = req.query.endereco;
     const numero = req.query.numero;
     const horario = req.query.horario;
+    const usuario = req.query.usuario;
+
 
     const text = "INSERT INTO doadores (tipodealimento, prazodevalidade, endereco, cep, numero, horario, usuario) \
-    VALUES ($1, $2, $3, $4, $5, $6, 'danielTESTE')";
-    const values = [tipodealimento, validade, endereco, cep, numero, horario];
+    VALUES ($1, $2, $3, $4, $5, $6, $7)";
+    const values = [tipodealimento, validade, endereco, cep, numero, horario, usuario];
 
     //TABELA DOADORES
     client.query(text, values, (err, res) => {
@@ -62,6 +73,24 @@ app.get("/doacao2", (req, res) => {
         }
     });
 });
+
+
+//DADOS DOACAO APENAS DO USUARIO LOGADO
+app.get("/dadosDoacaoUsuario", (req, res) => {
+    
+    const text = "SELECT * FROM doadores WHERE usuario=$1 ORDER BY id ASC";
+    const usuario = req.query.usuario;
+
+    client.query(text, [usuario], (err, result) => {
+        if (err) {
+            console.log(err.stack);
+        }
+        else {
+            res.send(result.rows)
+        }
+    });
+});
+
 
 
 //EXCLUIR DADOS TABELA DOADORES
@@ -141,8 +170,7 @@ const atualizarTabelaAlimentos = () => {
 };
 
 //REQ DE DADOS DE ALIMENTOS
-app.post("/alimentos1", (req, res) => {
-
+app.get("/alimentos1", (req, res) => {
     const text = "SELECT * FROM alimentos ORDER BY idalimento ASC"
     client.query(text, [], (err, result) => {
         if(err) {
@@ -158,7 +186,6 @@ app.get("/setarIndisponivel", (req, res) => {
     const text = "UPDATE public.alimentos SET disponivel=FALSE WHERE idAlimento = $1"
     const values = [req.query.ID]
 
-    console.log(values)
     client.query(text, values, (err, result) => {
         if(err) {
             console.log(err);

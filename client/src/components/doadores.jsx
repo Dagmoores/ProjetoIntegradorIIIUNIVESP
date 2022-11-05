@@ -2,9 +2,8 @@ import Axios from "axios";
 import buttonX from "../assets/images/buttonX.png"
 
 
-function Doadores(dadosDoacao, register, setValue, handleSubmit) {
+function Doadores(dadosDoacaoUsuario, register, setValue, handleSubmit, usuario) {
     
-
     //API CHECAR CPF
     function checarCep(e) {
         let CEP = e.target.value.replace(/\D/g, '');
@@ -20,20 +19,23 @@ function Doadores(dadosDoacao, register, setValue, handleSubmit) {
 
     //FORM SUBMIT
     const onSubmit = data => {
+        data.usuario = usuario
         enviarReqDoacao(data)
         window.location.reload(true)
     };
 
     //ENVIAR DADOS FORM AO BACKEND
     const enviarReqDoacao = (data) => {
-        Axios.get("https://maisalimentos-server.herokuapp.com/doacao2", {
+        console.log(data)
+        Axios.get("http://localhost:8080/doacao2", {
             params: {
                     tipodealimento: data.tipoDeAlimento,
                     validade: data.validade,
                     cep: data.CEP,
                     endereco: data.endereco,
                     numero: data.numero, 
-                    horario: data.horario  
+                    horario: data.horario,
+                    usuario: data.usuario, 
             }
         }); 
     };  
@@ -63,19 +65,20 @@ function Doadores(dadosDoacao, register, setValue, handleSubmit) {
                 </thead>
                 <tbody id="tableBody">
                     {
-                    dadosDoacao.map((item, i) =>                         
+                    dadosDoacaoUsuario.map((item, i) => 
                         <tr key={i}>
-                            <td>{item.tipodealimento}</td>
-                            <td>{item.prazodevalidade}</td>
-                            <td>{`${item.endereco}, ${item.numero}`}</td>
-                            <td>{item.horario}</td>
-                            <td className= "tabelaDoacoesTdNula">
-                                <input className="tabelaDoacoesInputButtonX" id={item.id}
-                                onClick={(event) => excluirDoacao(event.target.id)}
-                                type="image" alt="Excluir Doação" title="Excluir Doação" src={buttonX} 
-                                />
-                            </td>
-                        </tr>
+                        <td>{item.tipodealimento}</td>
+                        <td>{item.prazodevalidade}</td>
+                        <td>{`${item.endereco}, ${item.numero}`}</td>
+                        <td>{item.horario}</td>
+                        <td className= "tabelaDoacoesTdNula">
+                            <input className="tabelaDoacoesInputButtonX" id={item.id}
+                            onClick={(event) => excluirDoacao(event.target.id)}
+                            type="image" alt="Excluir Doação" title="Excluir Doação" src={buttonX} 
+                            />
+                        </td>
+                    </tr>
+                    
                 )}
                 </tbody>
             </table>
