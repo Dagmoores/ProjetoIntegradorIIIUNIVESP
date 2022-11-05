@@ -11,9 +11,9 @@ app.use(bodyParser.json());
 //cors policy
 var cors = require('cors');
 app.use(cors(
-    //     {
-    //     origin: 'https://maisalimento-client.herokuapp.com/'
-    // }
+        {
+        origin: 'https://maisalimentos-client.herokuapp.com/'
+    }
 )); 
 
 //dotenv para variaveis de ambiente
