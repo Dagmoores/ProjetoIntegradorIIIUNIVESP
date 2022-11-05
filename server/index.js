@@ -10,11 +10,12 @@ app.use(bodyParser.json());
 
 //cors policy
 var cors = require('cors');
-app.use(cors(
-        {
-        origin: 'https://maisalimentos-client.herokuapp.com/'
-    }
-)); 
+// const allowedOrigin = ["https://maisalimentos-client.herokuapp.com/", 
+// "https://maisalimentos-server.herokuapp.com/doacao1", "https://maisalimentos-server.herokuapp.com/dadosDoacaoUsuario", 
+// "https://maisalimentos-server.herokuapp.com/alimentos1", "https://maisalimentos-server.herokuapp.com/doacao2",
+// "https://maisalimentos-server.herokuapp.com/doacao3/"]
+
+app.use(cors()); 
 
 //dotenv para variaveis de ambiente
 require('dotenv').config()
