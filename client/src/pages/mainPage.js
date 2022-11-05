@@ -36,12 +36,12 @@ function MainPage() {
 
         <p className="textoApresentacao">
         O website tem como objetivo atender a grade curricular dos cursos do Eixo Computação da
-        Universidade Virtual de São Paulo - UNIVESP e disponibilizar um website para que empresas
+        Universidade Virtual de São Paulo - UNIVESP e disponibilizar um website para empresas
         que comercializam alimentos perecíveis (frutas, verduras e legumes) para entidades 
-        filantrópicas, etc. do município de Bebedouro-SP.
+        filantrópicas do município de Bebedouro-SP.
         Os alimentos perecíveis comercializados que não apresentarem um aspecto atraente para o 
-        consumidor, mais em condições de consumo e que provavelmente seriam descartados, com o 
-        website podem ser doados.
+        consumidor e que provavelmente seriam descartados, mas que estejam em condições de consumo,
+        com o website podem ser doados.
 
         </p> { /* textoApresentacao */ }
       </section>{ /* apresentacao */ }
@@ -80,10 +80,8 @@ function MainPage() {
         <h1 className="tituloFacaParte"> Faça Parte deste Projeto!</h1> { /* tituloFacaParte */ }
 
         <p className="textoFacaParte">
-        Lorem ipsum et justo felis quis sed taciti suspendisse, nunc pellentesque eget facilisis 
-        gravida scelerisque vestibulum turpis, eleifend rutrum laoreet tempus ornare pretium dui. 
-        vitae himenaeos suspendisse bibendum phasellus nostra libero aliquam luctus vulputate erat, 
-        a mi cubilia augue dui urna pretium placerat donec 
+        Contribuindo com este projeto você está ajudando a criar  um mundo mais sustentável e solidário,
+        não deixe de fazer sua parte! 
         </p> { /* textoFacaParte */ }
 
       </section>{ /* facaParte */ }

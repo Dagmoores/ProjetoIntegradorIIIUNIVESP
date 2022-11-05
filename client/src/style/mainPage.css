@@ -131,7 +131,7 @@ h1 {
 .facaParte {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 22vw;
+    margin-top: 13vw;
     padding-bottom: 10vw;
     justify-content: center;
 }

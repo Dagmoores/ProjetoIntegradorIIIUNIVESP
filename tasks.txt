@@ -1,0 +1,3 @@
+4 - corrigir textos do site para finalizar totalmente a versao atual
+3- google login processo para lançar em produção 
+
