@@ -59,7 +59,6 @@ function Receber(dadosDoacao, dadosAlimentos) {
                     </li>
                     );
                 }
-                else {return 0}
             })
         );
          
