@@ -9,18 +9,24 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 //cors policy
-var cors = require('cors');
 // const allowedOrigin = ["https://maisalimentos-client.herokuapp.com/", 
 // "https://maisalimentos-server.herokuapp.com/doacao1", "https://maisalimentos-server.herokuapp.com/dadosDoacaoUsuario", 
 // "https://maisalimentos-server.herokuapp.com/alimentos1", "https://maisalimentos-server.herokuapp.com/doacao2",
 // "https://maisalimentos-server.herokuapp.com/doacao3/"]
 
-var corsOptions = {
-    origin: 'https://maisalimentos-client.herokuapp.com/',
-    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-  }
-
-app.use(cors(corsOptions)); 
+// cors policy
+let cors = require('cors');
+let whitelist = ["https://maisalimentos-client.herokuapp.com"]
+app.use(cors({
+    origin: function(origin, callback) {
+        if (whitelist.indexOf(origin) !== -1) {
+            callback(null, true)
+        } else {
+            callback(new Error('Não permitido pela política de CORS'))
+            console.log('origem', origin)
+        }
+    }
+}));
 
 //dotenv para variaveis de ambiente
 require('dotenv').config()
