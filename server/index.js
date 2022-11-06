@@ -15,7 +15,12 @@ var cors = require('cors');
 // "https://maisalimentos-server.herokuapp.com/alimentos1", "https://maisalimentos-server.herokuapp.com/doacao2",
 // "https://maisalimentos-server.herokuapp.com/doacao3/"]
 
-app.use(cors()); 
+var corsOptions = {
+    origin: 'https://maisalimentos-client.herokuapp.com/',
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+  }
+
+app.use(cors(corsOptions)); 
 
 //dotenv para variaveis de ambiente
 require('dotenv').config()
